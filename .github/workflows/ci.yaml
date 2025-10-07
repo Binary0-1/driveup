@@ -1,0 +1,32 @@
+name: Next.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies 
+        run: npm install -g pnpm && pnpm install
+
+      - name: Copy .env.example
+        shell: bash
+        run: cp .env.example .env
+
+      # 4. Run type checking 
+      - name: Type check
+        run: pnpm typecheck
+
+      # 6. Build the Next.js project
+      - name: Build Next.js
+        run: pnpm build
