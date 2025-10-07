@@ -1,11 +1,22 @@
-import Link from "next/link";
 
-export default function HomePage() {
-	return (
-		<main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
-			<div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-				Hi there
-			</div>
-		</main>
-	);
+import Main from "./main";
+
+type SearchParams = {
+  searchParams: {
+    path?: string;
+  };
+};
+
+async function getData(path: string) {
+  const res = await fetch(`http://localhost:3000/api?path=${path}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+export default async function Page({ searchParams }: SearchParams) {
+  const path = searchParams.path || "";
+  const items = await getData(path);
+  return <Main initialItems={items} />;
 }
