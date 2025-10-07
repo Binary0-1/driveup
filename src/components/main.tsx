@@ -40,7 +40,7 @@ export default function Main({ initialItems }: { initialItems: Item[] }) {
     <div className="p-8">
       <Header />
       <Breadcrumbs />
-      <FileList items={items} onFolderClick={handleFolderClick} />
+      <FileList items={items} />
     </div>
   );
 }

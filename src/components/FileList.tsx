@@ -17,7 +17,7 @@ type Item = {
   size?: string;
 };
 
-export default function FileList({ items, onFolderClick }: { items: Item[], onFolderClick: (folderName: string) => void }) {
+export default function FileList({ items }: { items: Item[] }) {
   return (
     <div className="border rounded-lg">
       <div className="grid grid-cols-4 font-semibold p-4 border-b">
@@ -27,7 +27,7 @@ export default function FileList({ items, onFolderClick }: { items: Item[], onFo
         <div>File Size</div>
       </div>
       {items.map((item) => (
-        <FileItem key={item.id} item={item} onFolderClick={onFolderClick} />
+        <FileItem key={item.id} item={item} />
       ))}
     </div>
   );
