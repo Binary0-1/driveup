@@ -8,7 +8,7 @@ type SearchParams = {
 };
 
 async function getData(path: string) {
-  const res = await fetch(`http://localhost:3000/api?path=${path}`);
+  const res = await fetch(`/api?path=${path}`);
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
