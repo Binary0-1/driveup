@@ -1,5 +1,5 @@
+import Main from "~/components/main";
 
-import Main from "./main";
 
 type SearchParams = {
   searchParams: {
@@ -8,12 +8,12 @@ type SearchParams = {
 };
 
 async function getData(path: string) {
-  const res = await fetch(`/api?path=${path}`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+  const res = await fetch(`${baseUrl}/api?path=${encodeURIComponent(path)}`);
+  if (!res.ok) throw new Error("Failed to fetch data");
   return res.json();
 }
+
 
 export default async function Page({ searchParams }: SearchParams) {
   const path = searchParams.path || "";

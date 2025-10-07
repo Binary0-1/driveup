@@ -1,10 +1,10 @@
 
 'use client';
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "~/components/dialog";
 import { Upload } from "lucide-react";
 import { useState } from "react";
-import { Button } from "~/components/ui/button";
+import { Button } from "./ui/button";
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);

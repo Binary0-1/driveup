@@ -3,9 +3,9 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Header from "./components/Header";
-import Breadcrumbs from "./components/Breadcrumbs";
-import FileList from "./components/FileList";
+import Header from "../components/Header";
+import Breadcrumbs from "../components/Breadcrumbs";
+import FileList from "../components/FileList";
 
 type Owner = {
   name: string;
